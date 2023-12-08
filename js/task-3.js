@@ -1,15 +1,10 @@
 function checkForSpam(message) {
-    let lowMessage = message.toLowerCase();
+    const normalizedMessage = message.toLowerCase();
     const banSpam = "spam";
     const banSale = "sale";
-    let validMessageSpam = lowMessage.indexOf(banSpam);
-    let validMessageSale = lowMessage.indexOf(banSale);
-    if (validMessageSpam !== -1 || validMessageSale !== -1) {
-        return true;
-    }
-    else {
-        return false;
-    }
+    const validMessageSpam = normalizedMessage.indexOf(banSpam);
+    const validMessageSale = normalizedMessage.indexOf(banSale);
+    return normalizedMessage.includes(banSpam) || normalizedMessage.includes(banSale);
 }
 console.log(checkForSpam("Latest technology news")); // false
 console.log(checkForSpam("JavaScript weekly newsletter")); // false
